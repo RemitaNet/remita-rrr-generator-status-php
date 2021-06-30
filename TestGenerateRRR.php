@@ -51,10 +51,10 @@ class TestGenerateRRR
         $customField2->value = "1234";
         $customField2->type = "ALL";
 
-        $generateRRRRequest->setCustomField(array(
+        $generateRRRRequest->customField = array(
             $customField1,
             $customField2
-        ));
+        );
 
         $response = RemitaRRRGenService::generateRRR($generateRRRRequest);
         echo "\n";
