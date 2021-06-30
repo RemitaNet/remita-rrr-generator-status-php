@@ -1,9 +1,6 @@
 <?php
 include 'Config/Credentials.php';
 include 'Constants/ApplicationUrl.php';
-
-include 'Request/GenerateRRRRequest.php';
-include 'Request/CustomField.php';
 include 'Util/HTTPUtil.php';
 
 class RemitaRRRGenService

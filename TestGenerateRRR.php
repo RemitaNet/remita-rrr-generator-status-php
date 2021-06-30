@@ -1,5 +1,7 @@
 <?php
 include 'RemitaRRRGenService.php';
+include 'Request/GenerateRRRRequest.php';
+include 'Request/CustomField.php';
 
 function initTest()
 {
