@@ -1,12 +1,9 @@
 <?php
-
-// Define a class
 include 'Config/Credentials.php';
 include 'Constants/ApplicationUrl.php';
 
 include 'Request/GenerateRRRRequest.php';
 include 'Request/CustomField.php';
-include 'Util/AES128CBC.php';
 include 'Util/HTTPUtil.php';
 
 class RemitaRRRGenService
@@ -39,8 +36,6 @@ class RemitaRRRGenService
             'Content-Type: application/json',
             'Authorization: remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash
         );
-        // array_push($headers);
-        // array_push($headers, 'Authorization:' . 'remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash);
         return $headers;
     }
 
@@ -73,8 +68,12 @@ class RemitaRRRGenService
         // // POST CALL
         $result = HTTPUtil::postMethod($url, $headers, json_encode($phpArray));
 
+        echo "\n";
         echo "RESULT: ", json_encode($result);
 
+        $result = substr($result, 7, 80);
+        echo "\n";
+        echo "In JSON: ", $result;
         return json_decode($result);
     }
 }

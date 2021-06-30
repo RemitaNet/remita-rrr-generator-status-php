@@ -57,8 +57,13 @@ class TestGenerateRRR
         $response = RemitaRRRGenService::generateRRR($generateRRRRequest);
         echo "\n";
         echo "\n";
-        echo "\n";
         echo "RESPONSE: ", json_encode($response);
+        echo "\n";
+        echo "STATUSCODE: ", $response->statuscode;
+        echo "\n";
+        echo "RRR: ", $response->RRR;
+        echo "\n";
+        echo "STATUS: ", $response->status;
     }
 }
 
