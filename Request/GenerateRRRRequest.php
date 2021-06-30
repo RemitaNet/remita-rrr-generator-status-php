@@ -17,20 +17,20 @@ class GenerateRRRRequest
 
     public $description;
 
-    public $customField = Array(
-        CustomField
-    );
+    public $customField;
 
-    // array( CustomField )
-    public function getCustomField()
-    {
-        return $this->customField;
-    }
+    // public $customField = Array(
+    // CustomField
+    // );
 
+    // // array( CustomField )
+    // public function getCustomField()
+    // {
+    // return $this->customField;
+    // }
     public function setCustomField($customField)
     {
         $this->customField = $customField;
     }
 }
-
 ?>

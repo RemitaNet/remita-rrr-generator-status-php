@@ -30,8 +30,8 @@ class TestGenerateRRR
     function test()
     {
         RemitaRRRGenService::init(initTest());
-        echo "\n";
         echo "// Generate RRR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+        echo "\n";
         $generateRRRRequest = new GenerateRRRRequest();
         $generateRRRRequest->serviceTypeId = rand() * 777;
         $generateRRRRequest->amount = "8909090989";
@@ -71,6 +71,5 @@ class TestGenerateRRR
 
 $testRITs = new TestGenerateRRR();
 $testRITs->test();
-
 ?>
 

@@ -2,7 +2,6 @@
 
 class CustomField
 {
-
     public $name;
 
     public $value;
