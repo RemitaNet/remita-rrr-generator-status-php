@@ -34,13 +34,13 @@ class RemitaRRRGenService
         $orderId = RemitaRRRGenService::$credentials->orderId;
         $headers = RemitaRRRGenService::$credentials->headers;
         $amount = RemitaRRRGenService::$credentials->amount;
-        $headers = array(
-            'Content-Type: application/json'
-        );
-        
         $apiHash = hash('sha512', $merchantId . $serviceTypeId . $orderId . $amount . $apiKey);
-        
-        array_push($headers, 'Authorization:' . 'remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash);
+        $headers = array(
+            'Content-Type: application/json',
+            'Authorization: remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash
+        );
+        // array_push($headers);
+        // array_push($headers, 'Authorization:' . 'remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash);
         return $headers;
     }
 
@@ -71,7 +71,7 @@ class RemitaRRRGenService
         echo "phpArray: ", json_encode($phpArray);
 
         // // POST CALL
-        $result = HTTPUtil::postMethod($url, json_encode($headers), json_encode($phpArray));
+        $result = HTTPUtil::postMethod($url, $headers, json_encode($phpArray));
 
         echo "RESULT: ", json_encode($result);
 
