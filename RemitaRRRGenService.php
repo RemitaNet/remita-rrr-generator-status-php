@@ -5,7 +5,7 @@ include 'Util/HTTPUtil.php';
 
 class RemitaRRRGenService
 {
-
+    
     // FORMAT RESPONSE
     public static function formatResponse($response)
     {
@@ -15,16 +15,16 @@ class RemitaRRRGenService
         $result = substr($result, 0, $newLength - 1);
         return json_decode($result);
     }
-
+    
     // GENERATE RRR
     public static function generateRRR($generateRRRRequest, $credentials)
     {
-        if (is_null($credentials)) 
+        if (is_null($credentials))
         {
             echo 'Credentials must be initialized';
             return;
         }
-
+        
         $merchantId = $credentials->merchantId;
         $serviceTypeId = $credentials->serviceTypeId;
         $apiKey = $credentials->apiKey;
@@ -36,12 +36,12 @@ class RemitaRRRGenService
             'Content-Type: application/json',
             'Authorization: remitaConsumerKey=' . $merchantId . ',remitaConsumerToken=' . $apiHash
         );
-
+        
         $url = $credentials->url . ApplicationUrl::$genRRRpath;
         $serviceTypeId = utf8_encode($credentials->serviceTypeId);
         $orderId = utf8_encode($credentials->orderId);
         $totalAmount = utf8_encode($credentials->amount);
-
+        
         // POST BODY
         $phpArray = array(
             'serviceTypeId' => $serviceTypeId,
@@ -55,10 +55,10 @@ class RemitaRRRGenService
         );
         // echo "\n";
         // echo "headers: ", json_encode($headers);
-
+        
         // echo "\n";
         // echo "phpArray: ", json_encode($phpArray);
-
+        
         // // POST CALL
         $result = HTTPUtil::postMethod($url, $headers, json_encode($phpArray));
         return RemitaRRRGenService::formatResponse($result);
