@@ -1,13 +1,15 @@
-# remita-rrr-generate-php
+<?php
+include 'RemitaRRRGenService.php';
+include 'Request/GenerateRRRRequest.php';
+include 'Request/CustomField.php';
 
-
-```aidl
-function initTest()
+function initCredentials()
 {
     // SDK Credentials
     $merchantId = "2547916";
     $apiKey = "1946";
     $serviceTypeId = "4430731";
+
     $amount = "100";
     $orderId = round(microtime(true) * 1000);
 
@@ -28,12 +30,13 @@ class TestGenerateRRR
 
     function test()
     {
-        RemitaRRRGenService::init(initTest());
+        $credentials = initCredentials();
+        
         echo "// Generate RRR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
         echo "\n";
         $generateRRRRequest = new GenerateRRRRequest();
-        $generateRRRRequest->serviceTypeId = rand() * 777;
-        $generateRRRRequest->amount = "8909090989";
+        $generateRRRRequest->serviceTypeId = "4430731";
+        $generateRRRRequest->amount = "100";
         $generateRRRRequest->orderId = "Regular Payment";
         $generateRRRRequest->payerName = "Michelle Alozie";
         $generateRRRRequest->payerEmail = "alozie@systemspecs.com.ng";
@@ -50,25 +53,17 @@ class TestGenerateRRR
         $customField2->value = "1234";
         $customField2->type = "ALL";
 
-        $generateRRRRequest->setCustomField(array(
+        $generateRRRRequest->customField = array(
             $customField1,
             $customField2
-        ));
+        );
 
-        $response = RemitaRRRGenService::generateRRR($generateRRRRequest);
-        echo "\n";
-        echo "\n";
+        $response = RemitaRRRGenService::generateRRR($generateRRRRequest, $credentials);
         echo "RESPONSE: ", json_encode($response);
-        echo "\n";
-        echo "STATUSCODE: ", $response->statuscode;
-        echo "\n";
-        echo "RRR: ", $response->RRR;
-        echo "\n";
-        echo "STATUS: ", $response->status;
     }
 }
 
 $testRITs = new TestGenerateRRR();
 $testRITs->test();
+?>
 
-```

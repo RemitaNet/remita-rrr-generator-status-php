@@ -1,0 +1,21 @@
+{
+	"name" : "remita/biller-php",
+	"type" : "library",
+	"description" : "An Systemspecs Billers SDK.",
+	"authors" : [{
+			"name" : "Iyare Diagboya",
+			"email" : "diagboya@systemspecs.com.ng",
+			"homepage" : "www.remita.net",
+			"role" : "Snr. S/W Engr."
+		}
+	],
+	"minimum-stability" : "stable",
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "https://github.com/RemitaNet/rits-sdk-php"
+		}
+	],
+	"require" : {
+		"php" : "^7.0"
+	}
+}
