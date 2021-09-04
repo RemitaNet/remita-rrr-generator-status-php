@@ -1,6 +1,7 @@
 <?php
-include 'RemitaRRRGenService.php';
+include 'RemitaRRRGeneratorAndStatusService.php';
 include 'Request/GenerateRRRRequest.php';
+include 'Request/RRRStatusRequest.php';
 include 'Request/CustomField.php';
 
 function initCredentials()
@@ -9,10 +10,10 @@ function initCredentials()
     $merchantId = "2547916";
     $apiKey = "1946";
     $serviceTypeId = "4430731";
-    
+
     $amount = "100";
     $orderId = round(microtime(true) * 1000);
-    
+
     // Initialize SDK
     $credentials = new Credentials();
     $credentials->url = ApplicationUrl::$demoUrl;
@@ -21,17 +22,17 @@ function initCredentials()
     $credentials->apiKey = $apiKey;
     $credentials->amount = $amount;
     $credentials->orderId = $orderId;
-    
+
     return $credentials;
 }
 
-class TestGenerateRRR
+class TestRRRGeneratorAndStatus
 {
-    
+
     function test()
     {
         $credentials = initCredentials();
-        
+
         echo "// Generate RRR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
         echo "\n";
         $generateRRRRequest = new GenerateRRRRequest();
@@ -42,28 +43,39 @@ class TestGenerateRRR
         $generateRRRRequest->payerEmail = "alozie@systemspecs.com.ng";
         $generateRRRRequest->payerPhone = "09062067384";
         $generateRRRRequest->description = "payment for Donation 3";
-        
+
         $customField1 = new CustomField();
         $customField1->name = "Matric Number";
         $customField1->value = "1509329285795";
         $customField1->type = "ALL";
-        
+
         $customField2 = new CustomField();
         $customField2->name = "Invoice Number";
         $customField2->value = "1234";
         $customField2->type = "ALL";
-        
+
         $generateRRRRequest->customField = array(
             $customField1,
             $customField2
         );
-        
-        $response = RemitaRRRGenService::generateRRR($generateRRRRequest, $credentials);
-        echo "RESPONSE: ", json_encode($response);
+
+        $generateRRRResponse = RemitaRRRGeneratorAndStatusService::generateRRR($generateRRRRequest, $credentials);
+        echo "generateRRRResponse: ", json_encode($generateRRRResponse);
+
+        echo "\n";
+        echo "\n";
+        echo "// RRR Status ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
+        echo "\n";
+
+        $rrrStatusRequest = new RRRStatusRequest();
+        $rrrStatusRequest->rrr = "240008240803";
+        $rrrStatusResponse = RemitaRRRGeneratorAndStatusService::rrrStatus($rrrStatusRequest, $credentials);
+        echo "\n";
+        echo "rrrStatusResponse: ", json_encode($rrrStatusResponse);
     }
 }
 
-$testRITs = new TestGenerateRRR();
+$testRITs = new TestRRRGeneratorAndStatus();
 $testRITs->test();
 ?>
 
