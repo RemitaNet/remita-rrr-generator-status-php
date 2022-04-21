@@ -53,7 +53,7 @@ class RemitaRRRGeneratorAndStatusService
             'payerEmail' => $generateRRRRequest->payerEmail,
             'payerPhone' => $generateRRRRequest->payerPhone,
             'description' => $generateRRRRequest->description,
-            'customField' => $generateRRRRequest->customField
+            'customFields' => $generateRRRRequest->customField
         );
         // echo "\n";
         // echo "headers: ", json_encode($headers);
