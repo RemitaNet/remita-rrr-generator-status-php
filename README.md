@@ -29,6 +29,7 @@ function initCredentials()
     return $credentials;
 }
 
+
 class TestRRRGeneratorAndStatus
 {
 
