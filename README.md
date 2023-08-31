@@ -1,6 +1,13 @@
 # Remita RRR Generator and Status SDK for PHP
 
-## Running the application
+---
+- [Usage](#Usage)
+- [Contributing](#Contributing)
+
+---
+
+## Usage
+### Running the application
 *  Clone project, review and run:
    https://github.com/RemitaNet/remita-rrr-generator-status-php/blob/main/TestRRRGeneratorAndStatus.php
 
@@ -85,9 +92,17 @@ $testRITs->test();
 	
 ```
 
-## Useful links
-* Join our Slack Developer/Support channel at http://bit.ly/RemitaDevSlack
+## Contributing
+- To contribute to this repo, follow these guidelines for creating issues, proposing new features, and submitting pull requests:
+
+Fork the repository.
+1. Create a new branch: `git checkout -b "feature-name"`
+2. Make your changes and commit: `git commit -m "added some new features"`
+3. Push your changes: `git push origin feature-name`
+4. Submit a Pull Request (PR).
+
+### Useful links
+* Join our [Slack](http://bit.ly/RemitaDevSlack) Developer/Support channel
     
-## Support
+### Support
 - For all other support needs, support@remita.net
-- To contribute to this repo, create an issue on what you intend to fix or update, make a PR and team will look into it and merge.
