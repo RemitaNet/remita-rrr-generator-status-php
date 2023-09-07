@@ -94,7 +94,7 @@ Fork the repository.
 4. Submit a Pull Request (PR).
 
 ### Useful links
-* Join our Slack Developer/Support channel on [slack](http://bit.ly/RemitaDevSlack)
+* Join our [Slack](http://bit.ly/RemitaDevSlack) Developer/Support channel
     
 ### Support
 - For all other support needs, support@remita.net
