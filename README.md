@@ -84,10 +84,18 @@ $testRITs->test();
 
 	
 ```
+## Contributing
+- To contribute to this repo, follow these guidelines for creating issues, proposing new features, and submitting pull requests:
 
-## Useful links
-* Join our Slack Developer/Support channel at http://bit.ly/RemitaDevSlack
+Fork the repository.
+1. Create a new branch: `git checkout -b "feature-name"`
+2. Make your changes and commit: `git commit -m "added some new features"`
+3. Push your changes: `git push origin feature-name`
+4. Submit a Pull Request (PR).
+
+### Useful links
+* Join our Slack Developer/Support channel on [slack](http://bit.ly/RemitaDevSlack)
     
-## Support
+### Support
 - For all other support needs, support@remita.net
-- To contribute to this repo, create an issue on what you intend to fix or update, make a PR and team will look into it and merge.
+
