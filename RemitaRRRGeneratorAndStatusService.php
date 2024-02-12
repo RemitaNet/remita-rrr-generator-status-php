@@ -8,9 +8,9 @@ class RemitaRRRGeneratorAndStatusService
 
     // FORMAT RESPONSE
     public static function formatResponse($response)
-    {  
+    {
         echo "\n";
-        echo "response: ", json_encode($response);
+        // echo "response: ", json_encode($response);
         echo "\n";
         $result = $response;
         $result = substr($result, 7);
@@ -53,7 +53,8 @@ class RemitaRRRGeneratorAndStatusService
             'payerEmail' => $generateRRRRequest->payerEmail,
             'payerPhone' => $generateRRRRequest->payerPhone,
             'description' => $generateRRRRequest->description,
-            'customFields' => $generateRRRRequest->customField
+            'customFields' => $generateRRRRequest->customField,
+            'lineItems' => $generateRRRRequest->lineItems
         );
         // echo "\n";
         // echo "headers: ", json_encode($headers);
@@ -87,10 +88,10 @@ class RemitaRRRGeneratorAndStatusService
 
         $url = $credentials->url . ApplicationUrl::$rrrStatusPath . $merchantId . "/" . $rrr . "/" . $apiHash . "/status.reg";
 
-//         echo "\n";
-//         echo "url: ", json_encode($url);
-//         echo "\n";
-//         echo "headers: ", json_encode($headers);
+        // echo "\n";
+        // echo "url: ", json_encode($url);
+        // echo "\n";
+        // echo "headers: ", json_encode($headers);
 
         // // GET METHOD CALL
         $result = HTTPUtil::getMethod($url, $headers);

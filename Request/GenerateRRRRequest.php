@@ -29,5 +29,17 @@ class GenerateRRRRequest
     {
         $this->customField = $customField;
     }
+
+    public $lineItems = array();
+
+    public function getLineItems()
+    {
+        return $this->lineItems;
+    }
+
+    public function setLineItems($lineItems)
+    {
+        $this->lineItems = $lineItems;
+    }
 }
 ?>
