@@ -2,7 +2,7 @@
 
 class ApplicationUrl
 {
-   public static $demoUrl = "https://remitademo.net";
+   public static $demoUrl = "https://demo.remita.net";
 
     public static $liveUrl = "https://login.remita.net";
 
